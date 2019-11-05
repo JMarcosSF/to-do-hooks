@@ -7,7 +7,7 @@ export default (state = {todos: [], isFetching: false, errorMessage: ''}, action
     case FETCH_TODOS_SUCCESS:
       return { ...state, todos: action.payload, isFetching: false };
     case FETCH_TODOS_ERROR:
-      return { ...state, errorMessage: 'Failed To Load Tree Data From API', isFetching: false }
+      return { ...state, errorMessage: 'Failed To Load Data From API', isFetching: false }
     default:
       return state;
   }

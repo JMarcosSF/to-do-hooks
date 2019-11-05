@@ -17,8 +17,7 @@ const TodosList = props => {
     }
 
     if(err) {
-      dispatch({ type: FETCH_TODOS_ERROR})
-      console.log(err);
+      dispatch({ type: FETCH_TODOS_ERROR })
     }
   };
 
@@ -28,6 +27,12 @@ const TodosList = props => {
       fetchData();
     }, 3000)
   }, []);
+
+  console.log('APPSTATE:', appState.errorMessage)
+
+  if(appState.errorMessage) {
+    return <div>{ appState.errorMessage }</div>
+  }
 
   if(appState.isFetching) {
     return <div>FETCHING!!!</div>
@@ -45,7 +50,9 @@ const TodosList = props => {
     )
   }
 
-  return <div>hi there</div>
+  if(appState.errorMessage) {
+    return <p>{ appState.errorMessage }</p>
+  }
 
 }
 
